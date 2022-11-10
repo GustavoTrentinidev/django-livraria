@@ -1,23 +1,18 @@
-from django.contrib import admin
-from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
-from uploader.router import router as uploader_router
-
-
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
+from django.contrib import admin
+from django.urls import include, path
 
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
     SpectacularSwaggerView,
 )
-
 from rest_framework import routers
-from core.views import CategoriaViewSet, LivroViewSet, EditoraViewSet, AutorViewSet
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
+from core.views import AutorViewSet, CategoriaViewSet, EditoraViewSet, LivroViewSet
+from uploader.router import router as uploader_router
 
 router = routers.DefaultRouter()
 router.register(r'categorias', CategoriaViewSet)
